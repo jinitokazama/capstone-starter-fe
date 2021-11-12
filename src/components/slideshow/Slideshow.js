@@ -6,9 +6,9 @@ function Slideshow(props) {
         <div className="Slideshow container mb-3">
             <Carousel variant="dark">
                 <Carousel.Item>
-                    <img
-                        className="d-block w-100"
-                        src="http://via.placeholder.com/800x400"
+                    <img style={{'height':"640px"}}
+                                            className="d-block w-100"
+                        src="https://as1.ftcdn.net/v2/jpg/00/65/49/36/1000_F_65493692_8MV0xO2gzOPkAsy2OS4VXth1U1tLiGhh.jpg"
                         alt="First slide"
                     />
                     <Carousel.Caption>
@@ -17,7 +17,7 @@ function Slideshow(props) {
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img
+                    <img style={{'height':"640px"}}
                         className="d-block w-100"
                         src="http://via.placeholder.com/800x400"
                         alt="Second slide"
@@ -28,7 +28,7 @@ function Slideshow(props) {
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img
+                    <img style={{'height':"640px"}}
                         className="d-block w-100"
                         src="http://via.placeholder.com/800x400"
                         alt="Third slide"
