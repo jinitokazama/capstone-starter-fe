@@ -12,6 +12,10 @@ function Header(props) {
         <Nav.Link to="/tools" href="/tools">Tools</Nav.Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
+          <Nav.Link href="/">Home</Nav.Link>
+          <Nav.Link href="/mushrooms">Mushrooms</Nav.Link>
+          <Nav.Link href="/recipes">Recipe</Nav.Link>
+          <Nav.Link href="/tools">Tools</Nav.Link>
           <Nav activeKey={props.location.pathname} className="ml-auto">
             <UserNav
               isAuthenticated={props.isAuthenticated}
