@@ -1,3 +1,4 @@
+import isAuthenticated from "../../utils/isAuthenticated";
 import Header from "../../components/header/Header";
 import Slideshow from "../../components/slideshow/Slideshow";
 import GridCards from "../../components/gridcards/GridCards";
@@ -5,7 +6,7 @@ import GridCards from "../../components/gridcards/GridCards";
 function Home(props) {
   return (
     <div className="Home">
-        <Header/>
+        <Header isAuthenticated={isAuthenticated()}/>
         <Slideshow/>
         <GridCards/>
     </div>

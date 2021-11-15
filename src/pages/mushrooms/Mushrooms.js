@@ -1,11 +1,12 @@
+import isAuthenticated from "../../utils/isAuthenticated";
 import Header from "../../components/header/Header";
 import MushroomGridCards from "./MushroomGridCards";
 
 
-function Mushrooms(props) {
+function Mushrooms() {
     return (
         <div>
-            <Header/>
+            <Header isAuthenticated={isAuthenticated()}/>
             <MushroomGridCards/>
         </div>
     )
