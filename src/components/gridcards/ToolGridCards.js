@@ -1,67 +1,45 @@
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import Card from 'react-bootstrap/Card';
-import { Link, withRouter } from 'react-router-dom';
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
+import Card from "react-bootstrap/Card";
+import { Link, withRouter } from "react-router-dom";
+import ToolService from "../../service/ToolsService";
+import { useState, useEffect } from "react";
 
-function ToolGridCards(props) {
+const ToolGridCards = () => {
+  const [tools, setTools] = useState([{}]);
 
-    const tools = [{}]
+  useEffect(() => {
+    const toolService = new ToolService();
 
+    toolService
+      .getAllTools()
+      .then((toolList) => {
+        setTools(toolList.data);
+      })
+      .catch((error) => {
+        this.setState({ errorMessage: "Cant get Tools" });
+      });
+  }, []);
+
+  const gridCards = tools.map((tool) => {
     return (
-        <div className="GridCards container mb-3">
-            <Row xs={1} lg={3} className="g-4">
-                <Col>
-                    <Card border="success" >
-
-                        <Card.Body>
-                            <Link to="/login" href="/login">
-                                <Card.Title>Shroomify</Card.Title>
-                            </Link>
-                            <Card.Text>
-                                View common mushrooms with images to help you ID your mushroom.
-                            </Card.Text>
-                        </Card.Body>
-                        <Link to="/login" href="/login">
-                            <Card.Img variant="bottom" src="../../pictures/1" />
-                        </Link>
-                    </Card>
-                </Col>
-                <Col>
-                    <Card border="success" >
-                        <Link to="/login" href="/login">
-                            <Card.Img variant="top" src="../../pictures/1.jpg" />
-                        </Link>
-                        <Card.Body>
-                            <Link to="/login" href="/login">
-                                <Card.Title>Best Mushroom Recipes</Card.Title>
-                            </Link>
-                            <Card.Text>
-                                24 mushroom recipes so good, they're magic!
-                            </Card.Text>
-                        </Card.Body>
-
-                    </Card>
-                </Col>
-                <Col>
-                    <Card border="success" >
-
-                        <Card.Body>
-                            <Link to="/login" href="/login">
-                                <Card.Title>Shroom Hunting Tools</Card.Title>
-                            </Link>
-                            <Card.Text>
-                                Here's what you will need to start foraging mushrooms.
-                            </Card.Text>
-                        </Card.Body>
-                        <Link to="/login" href="/login">
-                            <Card.Img variant="bottom" src="https://as2.ftcdn.net/v2/jpg/02/86/59/47/1000_F_286594712_YXAKXa7lCWsWjtrrO11r4YCy1iAOiRS7.jpg" />
-                        </Link>
-                    </Card>
-                </Col>
-
-            </Row>
-        </div>
+      <Col>
+        <Card border="success">
+          <Card.Header>{tool.name}</Card.Header>
+          <Card.Img variant="bottom" src={tool.pictureUrl} />
+          <Card.Footer>{tool.description}</Card.Footer>
+        </Card>
+      </Col>
     );
-}
+  });
+
+  return (
+    <div className="GridCards container mb-3">
+      <Row xs={1} lg={3} className="g-4">
+        {gridCards}
+      </Row>
+    </div>
+  );
+};
 
 export default withRouter(ToolGridCards);
