@@ -7,6 +7,7 @@ import NotFound from "./pages/notFound/NotFound";
 import Register from "./pages/register/Register";
 import AddMushroom from "./pages/addMushroom/AddMushroom";
 import UpdateUser from "./pages/updateUser/UpdateUser";
+import Mushroom from "./pages/mushrooms/Mushrooms";
 
 function App() {
   return (
@@ -43,6 +44,11 @@ function App() {
           exact
           path="/protected"
           component={Protected}
+        />
+        <Route
+          exact
+          path="/mushrooms"
+          component={Mushroom}
         />
         <Route
           exact
