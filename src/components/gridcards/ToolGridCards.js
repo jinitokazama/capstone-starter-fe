@@ -24,10 +24,13 @@ const ToolGridCards = () => {
   const gridCards = tools.map((tool) => {
     return (
       <Col>
-        <Card border="success">
-          <Card.Header>{tool.name}</Card.Header>
-          <Card.Img variant="bottom" src={tool.pictureUrl} />
-          <Card.Footer>{tool.description}</Card.Footer>
+        <Card bg="primary" style={{marginBottom: 15}} border="success">
+          <Card.Header>
+            <Card.Title>{tool.name}</Card.Title>
+            <Card.Text>{tool.description}</Card.Text>
+          </Card.Header>
+
+          <Card.Img style={{'height':"300px"}}variant="bottom" src={tool.pictureUrl} />
         </Card>
       </Col>
     );

@@ -4,7 +4,7 @@ import ToolSlideshow from "../../components/slideshow/ToolsSlideshow";
 
 function Tools(props) {
   return (
-    <div className="Home">
+    <div className="Tools" class="Tools">
         <Header/>
         <ToolSlideshow />
         <ToolGridCards/>
