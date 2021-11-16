@@ -30,7 +30,7 @@ function HomeGridCards(props) {
                             <Card.Img variant="top" src="https://as1.ftcdn.net/v2/jpg/02/34/66/64/1000_F_234666444_LaGMfOH0Tnxo76IhyKwXpUxnhHAt7k7I.jpg" />
                         </Link>
                         <Card.Body>
-                            <Link to="/login" href="/login">
+                            <Link to="/recipe" href="/recipe">
                                 <Card.Title>Best Mushroom Recipes</Card.Title>
                             </Link>
                             <Card.Text>
