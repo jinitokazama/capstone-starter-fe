@@ -53,12 +53,6 @@ function MushroomForm({ handleChange, handleSubmit, formData }) {
                             <Form.Control onChange={handleChange} value={formData.edibility} type="text" placeholder="edible" />
                         </Form.Group>
                     </Col>
-                    < Col>
-                        <Form.Group controlId="toxicity">
-                            <Form.Label><strong>Toxicity</strong></Form.Label>
-                            <Form.Control onChange={handleChange} value={formData.toxicity} type="text" placeholder="toxicity" />
-                        </Form.Group>
-                    </Col>
                     <Col>
                         <Form.Group controlId="locations">
                             <Form.Label><strong>Location</strong></Form.Label>

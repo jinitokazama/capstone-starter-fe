@@ -20,7 +20,6 @@ class AddMushroom extends Component {
             color: "",
             idCharacteristics: "",
             edibility: "",
-            toxicity: "",
             habitat: "",
             locations: "",
             experts: "",
@@ -28,21 +27,14 @@ class AddMushroom extends Component {
         }
     }
 
-    //method that handles updating the data in state that matches the data in the form
-    //runs everytime a form field changes
     handleChange = (event) => {
-       
         let formData = { ...this.state.formData };
-       
+
         formData[event.target.id] = event.target.value;
-        
         this.setState({ formData });
     }
 
-    //run when the form is submitted
     handleSubmit = (event) => {
-
-        //prevent the form from refreshing the page
         event.preventDefault();
 
         if (this.state.formData.pictureUrl === "") {
@@ -50,27 +42,22 @@ class AddMushroom extends Component {
             return;
         }
 
-        //get API url from the environment variables
         const apiURL = process.env.REACT_APP_API_URL
 
-        //use fetch to make a POST request with the Data from state that has been populated from
-        //the data in the form
         fetch(`${apiURL}/api/mushrooms`, {
-            method: "POST", //make sure whe set our method to POST when creating records
+            method: "POST",
             headers: {
-                'content-type': 'application/json', //make sure we set the content-type headers so the API knows it is recieveing JSON data
+                'content-type': 'application/json',
                 ...generateAuthHeader()
             },
-            body: JSON.stringify(this.state.formData) //send our data form state int he body of the request
+            body: JSON.stringify(this.state.formData)
         })
-            .then((response) => response.json()) // on success, turn the respons into JSON so we can work with it
+            .then((response) => response.json())
             .then((data) => {
                 const message = "This mushroom has been succesfully added into the library! Thank you for your contribution!"
-                //programatically redirect to another route on success
                 this.props.history.push(`/mushrooms?message=${message}`)
             })
-            .catch(e => console.log(e.message)) //console.log any errors if the previous steps fail
-
+            .catch(e => console.log(e.message))
     }
 
     render() {
