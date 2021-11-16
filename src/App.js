@@ -47,7 +47,7 @@ function App() {
         <Route
           exact
           path="/mushrooms"
-          component={Mushrooms}
+          component={Mushroom}
         />
         <Route
           exact
