@@ -6,6 +6,9 @@ import NotFound from "./pages/notFound/NotFound";
 import Register from "./pages/register/Register";
 import UpdateUser from "./pages/updateUser/UpdateUser";
 import Recipe from "./pages/recipe/Recipe";
+import Tools from './pages/tools/Tools';
+import Mushroom from "./pages/mushrooms/Mushrooms";
+
 
 function App() {
   return (
@@ -20,6 +23,11 @@ function App() {
           exact
           path="/login"
           component={Login}
+        />
+        <Route
+          exact
+          path="/tools"
+          component={Tools}
         />
         <Route
           exact
@@ -40,6 +48,11 @@ function App() {
           exact
           path="/recipe"
           component={Recipe}
+        />
+        <Route
+          exact
+          path="/mushrooms"
+          component={Mushroom}
         />
         <Route
           exact
