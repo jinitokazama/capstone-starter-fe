@@ -6,7 +6,9 @@ import Login from "./pages/login/Login";
 import NotFound from "./pages/notFound/NotFound";
 import Register from "./pages/register/Register";
 import UpdateUser from "./pages/updateUser/UpdateUser";
-import Mushrooms from "./pages/mushrooms/Mushrooms";
+import Tools from './pages/tools/Tools';
+import Mushroom from "./pages/mushrooms/Mushrooms";
+
 
 function App() {
   return (
@@ -21,6 +23,11 @@ function App() {
           exact
           path="/login"
           component={Login}
+        />
+        <Route
+          exact
+          path="/tools"
+          component={Tools}
         />
         <Route
           exact
@@ -42,7 +49,6 @@ function App() {
           path="/mushrooms"
           component={Mushrooms}
         />
-
         <Route
           exact
           path="*"
