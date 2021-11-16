@@ -26,7 +26,6 @@ const ToolGridCards = () => {
   }, []);
 
   function onDelete(toolId) {
-    console.log("delete id is", toolId);
     toolService.removeTool(toolId).then((toolMessage) => {
       console.log(toolMessage);
       getTools();

@@ -14,3 +14,10 @@ code {
     monospace;
 }
 
+.nav-link {
+  color: white;
+}
+
+.navbar-brand {
+  color: white;
+}
