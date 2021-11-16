@@ -29,9 +29,6 @@ function UserNav(props) {
       <Navbar.Text className="font-weight-bold mx-3">
         Welcome, Guest
       </Navbar.Text>
-      //Joyce temporary code block to add a "Add Mushroom" link
-      <Nav.Link as={Link} to="/addMushroom" href="/addMushroom">Add a Mushroom</Nav.Link>
-      //Joyce temporary code block
       <Nav.Link as={Link} to="/login" href="/login">Sign in</Nav.Link>
       <Nav.Link as={Link} to="/register" href="/register">Register</Nav.Link>
     </>
