@@ -12,7 +12,7 @@ function HomeGridCards(props) {
                     <Card border="success" >
 
                         <Card.Body>
-                            <Link to="/login" href="/login">
+                            <Link to="/mushrooms" href="/mushrooms">
                                 <Card.Title>Shroomify</Card.Title>
                             </Link>
                             <Card.Text>

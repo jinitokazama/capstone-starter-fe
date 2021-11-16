@@ -1,14 +1,12 @@
 import React, { Component } from "react";
+import { generateAuthHeader } from "../../utils/authHelper";
+import mustBeAuthenticated from "../../redux/hoc/mustBeAuthenticated";
+
 import Alert from 'react-bootstrap/Alert';
 
-import { connect } from "react-redux";
-import * as authActions from "../../redux/actions/auth";
-import { bindActionCreators } from "redux";
-
-import AuthService from "../../authService";
-import { Redirect, withRouter } from "react-router-dom";
-import MushroomForm from "../../components/mushroomForm/MushroomForm";
 import Header from "../../components/header/Header";
+import MushroomForm from "../../components/mushroomForm/MushroomForm";
+
 
 class AddMushroom extends Component {
 
@@ -30,49 +28,62 @@ class AddMushroom extends Component {
         }
     }
 
-    client = new AuthService();
-
+    //method that handles updating the data in state that matches the data in the form
+    //runs everytime a form field changes
     handleChange = (event) => {
+       
         let formData = { ...this.state.formData };
+       
         formData[event.target.id] = event.target.value;
+        
         this.setState({ formData });
     }
 
+    //run when the form is submitted
     handleSubmit = (event) => {
+
+        //prevent the form from refreshing the page
         event.preventDefault();
-        this.client.AddMushroom(this.state.formData).then((response) => {
-            // handle success
-            localStorage.setItem('auth',
-                JSON.stringify({
-                    commonName: response.data.commonName,
-                    email: response.data.email
-                })
-            );
-            this.props.actions.AddMushroom(response.data)
-            this.setState({ success: true })
+
+        if (this.state.formData.pictureUrl === "") {
+            this.setState({ errorMessage: "The pictureUrl is empty!" })
+            return;
+        }
+
+        //get API url from the environment variables
+        const apiURL = process.env.REACT_APP_API_URL
+
+        //use fetch to make a POST request with the Data from state that has been populated from
+        //the data in the form
+        fetch(`${apiURL}/api/mushrooms`, {
+            method: "POST", //make sure whe set our method to POST when creating records
+            headers: {
+                'content-type': 'application/json', //make sure we set the content-type headers so the API knows it is recieveing JSON data
+                ...generateAuthHeader()
+            },
+            body: JSON.stringify(this.state.formData) //send our data form state int he body of the request
         })
-            .catch((error) => {
-                this.setState({ errorMessage: "Invalid Username/Password Combination" })
+            .then((response) => response.json()) // on success, turn the respons into JSON so we can work with it
+            .then((data) => {
+                const message = "This mushroom has been succesfully added into the library! Thank you for your contribution!"
+                //programatically redirect to another route on success
+                this.props.history.push(`/mushrooms?message=${message}`)
             })
+            .catch(e => console.log(e.message)) //console.log any errors if the previous steps fail
+
     }
 
     render() {
-        const params = new URLSearchParams(this.props.location.search);
-        const flashMessage = params.get('message');
-        if (this.state.success) {
-            const redirect = params.get('redirect');
-            return <Redirect to={(redirect) ? redirect : "/protected"} />
-        }
         return (
-            <div className="MushroomForm">
+            <div className="Register">
 
-                <Header />
+                <Header isAuthenticated={this.props.isAuthenticated} />
 
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
-                    {flashMessage && <Alert variant="info">{flashMessage}</Alert>}
+                    {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
                 </div>
-
+                <h3 className="text-center" >Add A Mushroom</h3>
                 <MushroomForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
@@ -84,19 +95,4 @@ class AddMushroom extends Component {
     }
 }
 
-function mapStateToProps(state) {
-    return {
-        auth: state.auth,
-    };
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        actions: bindActionCreators(authActions, dispatch)
-    };
-}
-
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(withRouter(AddMushroom));
+export default mustBeAuthenticated(AddMushroom)
