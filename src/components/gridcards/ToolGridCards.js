@@ -1,16 +1,16 @@
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Card from "react-bootstrap/Card";
-import { Link, withRouter } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import { withRouter } from "react-router-dom";
 import ToolService from "../../service/ToolsService";
 import { useState, useEffect } from "react";
 
 const ToolGridCards = () => {
   const [tools, setTools] = useState([{}]);
+  const toolService = new ToolService();
 
-  useEffect(() => {
-    const toolService = new ToolService();
-
+  const getTools = () => {
     toolService
       .getAllTools()
       .then((toolList) => {
@@ -19,18 +19,41 @@ const ToolGridCards = () => {
       .catch((error) => {
         this.setState({ errorMessage: "Cant get Tools" });
       });
+  };
+
+  useEffect(() => {
+    getTools();
   }, []);
 
-  const gridCards = tools.map((tool) => {
+  function onDelete(toolId) {
+    console.log("delete id is", toolId);
+    toolService.removeTool(toolId).then((toolMessage) => {
+      console.log(toolMessage);
+      getTools();
+    });
+  }
+
+  function onUpdate(toolID) {
+    console.log("Update");
+  }
+
+  const gridCards = tools.map((tool, index) => {
     return (
-      <Col>
-        <Card bg="primary" style={{marginBottom: 15}} border="success">
+      <Col key={index}>
+        <Card bg="primary" style={{ marginBottom: 15 }} border="success">
           <Card.Header>
             <Card.Title>{tool.name}</Card.Title>
             <Card.Text>{tool.description}</Card.Text>
           </Card.Header>
-
-          <Card.Img style={{'height':"300px"}}variant="bottom" src={tool.pictureUrl} />
+          <Card.Img
+            style={{ height: "300px" }}
+            variant="bottom"
+            src={tool.pictureUrl}
+          />
+          <Card.Footer>
+            <Button onClick={() => onDelete(tool._id)}>Delete</Button>
+            <Button onClick={() => onUpdate(tool._id)}>Update</Button>
+          </Card.Footer>
         </Card>
       </Col>
     );
