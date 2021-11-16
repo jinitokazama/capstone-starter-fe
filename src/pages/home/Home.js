@@ -1,13 +1,13 @@
 import Header from "../../components/header/Header";
 import Slideshow from "../../components/slideshow/Slideshow";
-import GridCards from "../../components/gridcards/GridCards";
+import HomeGridCards from "../../components/gridcards/HomeGridCards";
 
 function Home(props) {
   return (
     <div className="Home">
         <Header/>
         <Slideshow/>
-        <GridCards/>
+        <HomeGridCards/>
     </div>
   );
 }
