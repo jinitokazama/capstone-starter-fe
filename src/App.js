@@ -5,7 +5,9 @@ import Protected from "./pages/protected/Protected";
 import Login from "./pages/login/Login";
 import NotFound from "./pages/notFound/NotFound";
 import Register from "./pages/register/Register";
+import AddMushroom from "./pages/addMushroom/AddMushroom";
 import UpdateUser from "./pages/updateUser/UpdateUser";
+import Mushroom from "./pages/mushrooms/Mushrooms";
 
 function App() {
   return (
@@ -26,6 +28,13 @@ function App() {
           path="/register"
           component={Register}
         />
+        {/* Joyce temporary code block - to add a mushroom */}
+        <Route
+          exact
+          path="/addMushroom"
+          component={AddMushroom}
+        />
+      {/* Joyce temporary code block - to add a mushroom */}
         <Route
           exact
           path="/updateuser/:email"
@@ -35,6 +44,11 @@ function App() {
           exact
           path="/protected"
           component={Protected}
+        />
+        <Route
+          exact
+          path="/mushrooms"
+          component={Mushroom}
         />
         <Route
           exact
