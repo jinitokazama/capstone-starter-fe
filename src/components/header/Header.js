@@ -11,7 +11,7 @@ function Header(props) {
         <Navbar.Brand as={Link} to="/">ShroomTycoon</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav.Link href="/">Home</Nav.Link>
+        <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="/mushrooms">Mushrooms</Nav.Link>
           <Nav.Link href="/recipes">Recipe</Nav.Link>
           <Nav.Link href="/tools">Tools</Nav.Link>

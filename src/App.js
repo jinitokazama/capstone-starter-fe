@@ -9,6 +9,7 @@ import UpdateUser from "./pages/updateUser/UpdateUser";
 import Tools from './pages/tools/Tools';
 import Mushroom from "./pages/mushrooms/Mushrooms";
 
+
 function App() {
   return (
     <div className="App">
@@ -46,7 +47,7 @@ function App() {
         <Route
           exact
           path="/mushrooms"
-          component={Mushroom}
+          component={Mushrooms}
         />
         <Route
           exact
