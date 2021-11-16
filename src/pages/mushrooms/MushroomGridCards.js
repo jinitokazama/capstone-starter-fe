@@ -28,11 +28,10 @@ class MushroomGridCards extends React.Component {
     }
 
     deleteMushrooms = (mushroomId) => {
-        console.log("delete: " + mushroomId)
         this.mushroomService.deleteMushrooms(mushroomId).then((response) => {
-            console.log(response)
             this.getMushrooms()
         })
+        console.log("delete: " + mushroomId)
     }
 
     render() {
@@ -52,7 +51,6 @@ class MushroomGridCards extends React.Component {
                                     <Card.Text>Edible: {mushroom.edibility}</Card.Text>
                                     <Card.Text>Habitat: {mushroom.habitat}</Card.Text>
                                     <Card.Text>Location: {mushroom.locations}</Card.Text>
-                                    {isAuthenticated() ? <Button className="MushroomButton" onClick={() => console.log(mushroom._id)}>Update</Button> : null}
                                     {isAuthenticated() ? <Button className="MushroomButton" onClick={() => this.deleteMushrooms(mushroom._id)}>Delete</Button> : null}
                                 </Card.Body>
                             </Card>
