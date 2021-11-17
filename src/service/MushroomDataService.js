@@ -7,20 +7,20 @@ class MushroomDataService {
     constructor(url = process.env.REACT_APP_API_URL, client = axios) {
         this.url = url;
         this.client = client;
+        this.auth = {
+            headers: generateAuthHeader()
+        };
     }
 
     getAllMushrooms() {
         return this.client.get(`${this.url}/api/mushrooms`)
     };
 
-    createMushrooms() {
+    createMushrooms(data) {
         if(isAuthenticated()) {
-            const auth = {
-                headers: generateAuthHeader()
-            };
             return (
-                console.log("deleteMushrooms Called"),
-                this.client.post(`${this.url}/api/mushrooms`, auth)
+                console.log("Create Mushrooms Called"),
+                this.client.post(`${this.url}/api/mushrooms`, this.auth)
                 )    
         } else {
             console.log("Access Denied")
@@ -29,12 +29,9 @@ class MushroomDataService {
 
     updateMushrooms(mushroomId) {
         if(isAuthenticated()) {
-            const auth = {
-                headers: generateAuthHeader()
-            };
             return (
-                console.log("deleteMushrooms Called"),
-                this.client.put(`${this.url}/api/mushrooms/${mushroomId}`, auth)
+                console.log("Update Mushrooms Called"),
+                this.client.put(`${this.url}/api/mushrooms/${mushroomId}`, this.auth)
                 )    
         } else {
             console.log("Access Denied")
@@ -43,12 +40,9 @@ class MushroomDataService {
 
     deleteMushrooms(mushroomId) {
         if(isAuthenticated()) {
-            const auth = {
-                headers: generateAuthHeader()
-            };
             return (
-                console.log("deleteMushrooms Called"),
-                this.client.delete(`${this.url}/api/mushrooms/${mushroomId}`, auth)
+                console.log("Delete Mushrooms Called"),
+                this.client.delete(`${this.url}/api/mushrooms/${mushroomId}`, this.auth)
             )    
         } else {
             console.log("Access Denied")

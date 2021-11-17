@@ -9,6 +9,7 @@ import AuthService from "../../authService";
 import { Redirect, withRouter } from "react-router-dom";
 import LoginForm from "../../components/loginForm/LoginForm";
 import Header from "../../components/header/Header";
+import isAuthenticated from "../../utils/isAuthenticated";
 
 class Login extends Component {
 
@@ -57,7 +58,7 @@ class Login extends Component {
         return (
             <div className="LoginForm">
 
-                <Header />
+                <Header isAuthenticated={isAuthenticated()}/>
 
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}

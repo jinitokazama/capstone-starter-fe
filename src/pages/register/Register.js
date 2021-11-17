@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import Alert from 'react-bootstrap/Alert';
-
+import isAuthenticated from "../../utils/isAuthenticated";
 import Header from "../../components/header/Header";
 
 import UserForm from "../../components/userForm/UserForm";
@@ -67,7 +67,7 @@ class Register extends Component {
         return (
             <div className="Register">
 
-                <Header/>
+                <Header isAuthenticated={isAuthenticated()}/>
 
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
