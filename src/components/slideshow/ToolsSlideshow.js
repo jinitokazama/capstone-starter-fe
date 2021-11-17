@@ -1,22 +1,9 @@
 import Carousel from "react-bootstrap/Carousel";
-import { useState, useEffect } from "react";
-import ToolService from "../../service/ToolsService";
+import picture1 from '../../pictures/1.jpg';
+import picture4 from '../../pictures/4.jpg';
+import picture6 from '../../pictures/6.jpg';
 
 const ToolSlideshow = () => {
-  const [tools, setTools] = useState([{}]);
-
-  useEffect(() => {
-    const toolService = new ToolService();
-
-    toolService
-      .getAllTools()
-      .then((toolList) => {
-        setTools(toolList.data);
-      })
-      .catch((error) => {
-        this.setState({ errorMessage: "Cant get Tools" });
-      });
-  }, []);
 
   return (
     <div className="Slideshow container mb-3">
@@ -25,39 +12,39 @@ const ToolSlideshow = () => {
           <img
             style={{ height: "640px" }}
             className="d-block w-100"
-            src={tools[0]?.pictureUrl}
+            src={picture1}
             alt="slide"
          
           />
           <Carousel.Caption>
-            <h5 className="text-warning">{tools[0]?.name}</h5>
-            <p className="text-warning">{tools[0]?.description}</p>
+            <h5 className="text-warning">Elephant Tool</h5>
+            <p className="text-warning">Does things a Elephant does</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             style={{ height: "640px" }}
             className="d-block w-100"
-            src={tools[1]?.pictureUrl}
+            src={picture4}
             alt="slide"
             
           />
           <Carousel.Caption>
-            <h5 className="text-warning">{tools[1]?.name}</h5>
-            <p className="text-warning">{tools[1]?.description}</p>
+            <h5 className="text-warning">Racoon Tool</h5>
+            <p className="text-warning">Does Things a racoon does</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             style={{ height: "640px" }}
             className="d-block w-100"
-            src={tools[2]?.pictureUrl}
+            src={picture6}
             alt="slide"
           
           />
           <Carousel.Caption>
-            <h5 className="text-warning">{tools[2]?.name}</h5>
-            <p className="text-warning">{tools[2]?.description}</p>
+            <h5 className="text-warning">Hamster Tool</h5>
+            <p className="text-warning">Does things a hamster does</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
