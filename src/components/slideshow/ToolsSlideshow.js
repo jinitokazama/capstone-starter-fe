@@ -30,8 +30,8 @@ const ToolSlideshow = () => {
          
           />
           <Carousel.Caption>
-            <h5 className="text-primary">{tools[0]?.name}</h5>
-            <p className="text-primary">{tools[0]?.description}</p>
+            <h5 className="text-warning">{tools[0]?.name}</h5>
+            <p className="text-warning">{tools[0]?.description}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -43,8 +43,8 @@ const ToolSlideshow = () => {
             
           />
           <Carousel.Caption>
-            <h5 className="text-primary">{tools[1]?.name}</h5>
-            <p className="text-primary">{tools[1]?.description}</p>
+            <h5 className="text-warning">{tools[1]?.name}</h5>
+            <p className="text-warning">{tools[1]?.description}</p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -56,8 +56,8 @@ const ToolSlideshow = () => {
           
           />
           <Carousel.Caption>
-            <h5 className="text-primary">{tools[2]?.name}</h5>
-            <p className="text-primary">{tools[2]?.description}</p>
+            <h5 className="text-warning">{tools[2]?.name}</h5>
+            <p className="text-warning">{tools[2]?.description}</p>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
