@@ -22,18 +22,24 @@ class AddMushroom extends Component {
             locations: "",
             experts: "",
             pictureUrl: "",
-            wikipediaUrl:""
+            wikipediaUrl: ""
         }
     }
 
     //method that handles updating the data in state that matches the data in the form
     //runs everytime a form field changes
     handleChange = (event) => {
+        this.setState({ errorMessage: "" });
+        this.setState({ successMessage: "" });
        
         let formData = { ...this.state.formData };
-       
         formData[event.target.id] = event.target.value;
-        
+        //set the expert to be the login user's email
+        let auth = localStorage.getItem("auth");
+        auth = JSON.parse(auth);
+        formData.experts = auth.email;
+        console.log(formData);
+
         this.setState({ formData });
     }
 
@@ -51,14 +57,6 @@ class AddMushroom extends Component {
         //get API url from the environment variables
         const apiURL = process.env.REACT_APP_API_URL
 
-        //set the expert to be the login user's email
-        let auth = localStorage.getItem("auth");
-        auth = JSON.parse(auth);
-         
-        let formData = { ...this.state.formData };
-        this.setState({formData,experts:auth.email});
-        
-              
         //use fetch to make a POST request with the Data from state that has been populated from
         //the data in the form
         fetch(`${apiURL}/api/mushrooms`, {
@@ -71,25 +69,25 @@ class AddMushroom extends Component {
         })
             .then((response) => {
                 if (!response.ok) {
-                    this.setState({errorMessage:`${response.status} - ${response.statusText}`}); 
+                    this.setState({ errorMessage: `${response.status} - ${response.statusText}` });
                     return;
-                    }
-                    else {
-                        response.json() ;// on success, turn the respons into JSON so we can work with it
-                        this.setState({successMessage: "Mushroom is added Successfully"});
-                    }
-                })
-    
+                }
+                else {
+                    response.json();// on success, turn the respons into JSON so we can work with it
+                    this.setState({ successMessage: "Mushroom is added Successfully" });
+                }
+            })
+
             //.then((data) => {
-                
-                //const message = "This mushroom has been succesfully added into the library! Thank you for your contribution!"
-                //programatically redirect to another route on success
-               // this.props.history.push(`/mushrooms?message=${message}`)
+
+            //const message = "This mushroom has been succesfully added into the library! Thank you for your contribution!"
+            //programatically redirect to another route on success
+            // this.props.history.push(`/mushrooms?message=${message}`)
             //})
             .catch(e => {
-                this.setState({errorMessage:e.errorMessage})
+                this.setState({ errorMessage: e.errorMessage })
             })
-             
+
 
     }
 
