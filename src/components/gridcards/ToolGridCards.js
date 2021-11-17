@@ -74,7 +74,7 @@ const ToolGridCards = () => {
             <Card.Text>{tool.description}</Card.Text>
           </Card.Header>
           <Card.Img
-            style={{ height: "300px" }}
+            style={{ height: "250px" }}
             variant="bottom"
             src={tool.pictureUrl}
           />

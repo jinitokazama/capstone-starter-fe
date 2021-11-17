@@ -9,6 +9,7 @@ import UpdateUser from "./pages/updateUser/UpdateUser";
 import Tools from './pages/tools/Tools';
 import Mushroom from "./pages/mushrooms/Mushrooms";
 import AddMushroom from "./pages/addMushroom/addMushroom";
+import AddTools from "./pages/tools/AddTools";
 
 
 function App() {
@@ -54,6 +55,11 @@ function App() {
           exact
           path="/addMushroom"
           component={AddMushroom}
+        />
+        <Route
+          exact
+          path="/addTool"
+          component={AddTools}
         />
         <Route
           exact

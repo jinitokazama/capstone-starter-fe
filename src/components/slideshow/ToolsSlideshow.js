@@ -10,7 +10,7 @@ const ToolSlideshow = () => {
       <Carousel variant="dark">
         <Carousel.Item>
           <img
-            style={{ height: "640px" }}
+            style={{ height: "500px" }}
             className="d-block w-100"
             src={picture1}
             alt="slide"
@@ -23,7 +23,7 @@ const ToolSlideshow = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            style={{ height: "640px" }}
+            style={{ height: "500px" }}
             className="d-block w-100"
             src={picture4}
             alt="slide"
@@ -36,7 +36,7 @@ const ToolSlideshow = () => {
         </Carousel.Item>
         <Carousel.Item>
           <img
-            style={{ height: "640px" }}
+            style={{ height: "500px" }}
             className="d-block w-100"
             src={picture6}
             alt="slide"
