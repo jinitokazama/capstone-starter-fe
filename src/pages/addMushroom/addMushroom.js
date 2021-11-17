@@ -36,8 +36,7 @@ class AddMushroom extends Component {
         let auth = localStorage.getItem("auth");
         auth = JSON.parse(auth);
         formData.experts = auth.email;
-        console.log(formData);
-
+       
         this.setState({ formData });
     }
 
