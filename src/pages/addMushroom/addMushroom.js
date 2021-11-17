@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 import { generateAuthHeader } from "../../utils/authHelper";
 import mustBeAuthenticated from "../../redux/hoc/mustBeAuthenticated";
-
 import Alert from 'react-bootstrap/Alert';
-
 import Header from "../../components/header/Header";
 import MushroomForm from "../../components/mushroomForm/MushroomForm";
 
