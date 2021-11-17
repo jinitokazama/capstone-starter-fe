@@ -5,7 +5,6 @@ import Alert from 'react-bootstrap/Alert';
 import Header from "../../components/header/Header";
 import MushroomForm from "../../components/mushroomForm/MushroomForm";
 
-
 class AddMushroom extends Component {
 
     state = {
@@ -18,10 +17,10 @@ class AddMushroom extends Component {
             color: "",
             idCharacteristics: "",
             edibility: "",
-            habitat: "",
             locations: "",
             experts: "",
-            pictureUrl: ""
+            pictureUrl: "",
+            wikipediaUrl: ""
         }
     }
 
@@ -61,14 +60,12 @@ class AddMushroom extends Component {
     render() {
         return (
             <div className="Register">
-
                 <Header isAuthenticated={this.props.isAuthenticated} />
-
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
                     {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
                 </div>
-                <h3 className="text-center" >Add A Mushroom</h3>
+                <h3 className="text-center" >Mushroom Editor</h3>
                 <MushroomForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}

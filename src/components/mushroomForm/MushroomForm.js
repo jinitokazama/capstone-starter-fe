@@ -45,7 +45,6 @@ function MushroomForm({ handleChange, handleSubmit, formData }) {
                         </Form.Group>
                     </Col>
                 </Row>
-
                 <Row>
                     <Col>
                         <Form.Group controlId="edibility">
@@ -57,12 +56,6 @@ function MushroomForm({ handleChange, handleSubmit, formData }) {
                         <Form.Group controlId="locations">
                             <Form.Label><strong>Location</strong></Form.Label>
                             <Form.Control onChange={handleChange} value={formData.locations} type="text" placeholder="US region, or continent" />
-                        </Form.Group>
-                    </Col>
-                    <Col>
-                        <Form.Group controlId="habitat">
-                            <Form.Label><strong>Habitat</strong></Form.Label>
-                            <Form.Control onChange={handleChange} value={formData.habitat} type="text" placeholder="environment the mushroom grows: tree, soil etc" />
                         </Form.Group>
                     </Col>
 
@@ -77,12 +70,17 @@ function MushroomForm({ handleChange, handleSubmit, formData }) {
                     </Col>
                     <Col>
                         <Form.Group controlId="pictureUrl">
-                            <Form.Label><strong>Pictural URL</strong></Form.Label>
+                            <Form.Label><strong>Image URL</strong></Form.Label>
                             <Form.Control onChange={handleChange} value={formData.pictureUrl} type="text" placeholder="URL where sample mushroom picture can be viewed" />
                         </Form.Group>
                     </Col>
+                    <Col>
+                        <Form.Group controlId="wikipedia">
+                            <Form.Label><strong>Wiki Link</strong></Form.Label>
+                            <Form.Control onChange={handleChange} value={formData.wikipediaUrl} type="text" placeholder="environment the mushroom grows: tree, soil etc" />
+                        </Form.Group>
+                    </Col>
                 </Row>
-
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>

@@ -49,7 +49,6 @@ class MushroomGridCards extends React.Component {
                                     <Card.Text>Color: {mushroom.color}</Card.Text>
                                     <Card.Text>Characteristics: {mushroom.idCharacteristics}</Card.Text>
                                     <Card.Text>Edible: {mushroom.edibility}</Card.Text>
-                                    <Card.Text>Habitat: {mushroom.habitat}</Card.Text>
                                     <Card.Text>Location: {mushroom.locations}</Card.Text>
                                     {isAuthenticated() ? <Button className="MushroomButton" onClick={() => this.deleteMushrooms(mushroom._id)}>Delete</Button> : null}
                                 </Card.Body>
