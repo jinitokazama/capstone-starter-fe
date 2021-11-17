@@ -12,19 +12,17 @@ class AddMushroom extends Component {
 
     state = {
         errorMessage: null,
-        success: false,
+        successMessage: null,
         formData: {
             commonName: "",
             scientificName: "",
             description: "",
             color: "",
-            idCharacteristics: "",
             edibility: "",
-            toxicity: "",
-            habitat: "",
             locations: "",
             experts: "",
-            pictureUrl: ""
+            pictureUrl: "",
+            wikipediaUrl:""
         }
     }
 
@@ -53,6 +51,14 @@ class AddMushroom extends Component {
         //get API url from the environment variables
         const apiURL = process.env.REACT_APP_API_URL
 
+        //set the expert to be the login user's email
+        let auth = localStorage.getItem("auth");
+        auth = JSON.parse(auth);
+         
+        let formData = { ...this.state.formData };
+        this.setState({formData,experts:auth.email});
+        
+              
         //use fetch to make a POST request with the Data from state that has been populated from
         //the data in the form
         fetch(`${apiURL}/api/mushrooms`, {
@@ -63,13 +69,27 @@ class AddMushroom extends Component {
             },
             body: JSON.stringify(this.state.formData) //send our data form state int he body of the request
         })
-            .then((response) => response.json()) // on success, turn the respons into JSON so we can work with it
-            .then((data) => {
-                const message = "This mushroom has been succesfully added into the library! Thank you for your contribution!"
+            .then((response) => {
+                if (!response.ok) {
+                    this.setState({errorMessage:`${response.status} - ${response.statusText}`}); 
+                    return;
+                    }
+                    else {
+                        response.json() ;// on success, turn the respons into JSON so we can work with it
+                        this.setState({successMessage: "Mushroom is added Successfully"});
+                    }
+                })
+    
+            //.then((data) => {
+                
+                //const message = "This mushroom has been succesfully added into the library! Thank you for your contribution!"
                 //programatically redirect to another route on success
-                this.props.history.push(`/mushrooms?message=${message}`)
+               // this.props.history.push(`/mushrooms?message=${message}`)
+            //})
+            .catch(e => {
+                this.setState({errorMessage:e.errorMessage})
             })
-            .catch(e => console.log(e.message)) //console.log any errors if the previous steps fail
+             
 
     }
 
