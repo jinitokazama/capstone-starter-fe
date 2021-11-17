@@ -28,11 +28,10 @@ class MushroomGridCards extends React.Component {
     }
 
     deleteMushrooms = (mushroomId) => {
-        console.log("delete: " + mushroomId)
         this.mushroomService.deleteMushrooms(mushroomId).then((response) => {
-            console.log(response)
             this.getMushrooms()
         })
+        console.log("delete: " + mushroomId)
     }
 
     render() {
