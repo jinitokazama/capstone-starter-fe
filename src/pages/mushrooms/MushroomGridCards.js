@@ -52,10 +52,10 @@ class MushroomGridCards extends React.Component {
                 </Row>
                 <Row xs={1} lg={3} className="g-4">
                     {this.state.mushroomData.map((mushroom, idx) => (
-                        <Col key={idx}>
-                            <Card>
+                        <Col className="mb-4" key={idx}>
+                            <Card className="h-100 ">
                                 <Card.Img variant="top" src={mushroom.pictureUrl} />
-                                <Card.Body>
+                                <Card.Body >
                                     <Card.Title>{mushroom.commonName[0]}</Card.Title>
                                     <Card.Link href={mushroom.wikipediaUrl}>Scientific Name: {mushroom.scientificName}</Card.Link>
                                     <Card.Text>Description: {mushroom.description}</Card.Text>
