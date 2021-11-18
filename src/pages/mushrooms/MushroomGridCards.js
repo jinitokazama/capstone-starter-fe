@@ -28,11 +28,10 @@ class MushroomGridCards extends React.Component {
     }
 
     deleteMushrooms = (mushroomId) => {
-        console.log("delete: " + mushroomId)
         this.mushroomService.deleteMushrooms(mushroomId).then((response) => {
-            console.log(response)
             this.getMushrooms()
         })
+        console.log("delete: " + mushroomId)
     }
 
     render() {
@@ -45,13 +44,11 @@ class MushroomGridCards extends React.Component {
                                 <Card.Img variant="top" src={mushroom.pictureUrl} />
                                 <Card.Body>
                                     <Card.Title>{mushroom.commonName[0]}</Card.Title>
-                                    <Card.Text>Scientific Name: {mushroom.scientificName}</Card.Text>
+                                    <Card.Link href={mushroom.wikipediaUrl}>Scientific Name: {mushroom.scientificName}</Card.Link>
                                     <Card.Text>Description: {mushroom.description}</Card.Text>
                                     <Card.Text>Color: {mushroom.color}</Card.Text>
-                                    <Card.Text>Characteristics: {mushroom.idCharacteristics}</Card.Text>
                                     <Card.Text>Edible: {mushroom.edibility}</Card.Text>
-                                    <Card.Text>Habitat: {mushroom.habitat}</Card.Text>
-                                    <Card.Text>Location: {mushroom.locations}</Card.Text>
+                                    <Card.Text>Location: {mushroom.locations}</Card.Text>                                   
                                     {isAuthenticated() ? <Button className="MushroomButton" onClick={() => console.log(mushroom._id)}>Update</Button> : null}
                                     {isAuthenticated() ? <Button className="MushroomButton" onClick={() => this.deleteMushrooms(mushroom._id)}>Delete</Button> : null}
                                 </Card.Body>

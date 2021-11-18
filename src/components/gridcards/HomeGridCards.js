@@ -9,14 +9,14 @@ function HomeGridCards(props) {
         <div className="GridCards container mb-3">
             <Row xs={1} lg={3} className="g-4">
                 <Col>
-                    <Card border="success" >
+                    <Card border="dark" >
 
                         <Card.Body>
-                            <Link to="/login" href="/login">
+                            <Link to="/mushrooms" href="/mushrooms">
                                 <Card.Title>Shroomify</Card.Title>
                             </Link>
                             <Card.Text>
-                                View common mushrooms with images to help you ID your mushroom.
+                                View common mushrooms with images to help you ID your mushroom.                                
                             </Card.Text>
                         </Card.Body>
                         <Link to="/login" href="/login">
@@ -25,8 +25,8 @@ function HomeGridCards(props) {
                     </Card>
                 </Col>
                 <Col>
-                    <Card border="success" >
-                        <Link to="/login" href="/login">
+                    <Card border="dark" >
+                        <Link to="/" href="/">
                             <Card.Img variant="top" src="https://as1.ftcdn.net/v2/jpg/02/34/66/64/1000_F_234666444_LaGMfOH0Tnxo76IhyKwXpUxnhHAt7k7I.jpg" />
                         </Link>
                         <Card.Body>
@@ -41,10 +41,10 @@ function HomeGridCards(props) {
                     </Card>
                 </Col>
                 <Col>
-                    <Card border="success" >
+                    <Card border="dark" >
 
                         <Card.Body>
-                            <Link to="/login" href="/login">
+                            <Link to="/tools" href="/tools">
                                 <Card.Title>Shroom Hunting Tools</Card.Title>
                             </Link>
                             <Card.Text>
