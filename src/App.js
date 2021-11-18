@@ -1,11 +1,11 @@
 import { Switch, Route } from "react-router-dom";
-
 import Home from "./pages/home/Home";
 import Protected from "./pages/protected/Protected";
 import Login from "./pages/login/Login";
 import NotFound from "./pages/notFound/NotFound";
 import Register from "./pages/register/Register";
 import UpdateUser from "./pages/updateUser/UpdateUser";
+import Recipe from "./pages/recipe/Recipe";
 import Tools from './pages/tools/Tools';
 import Mushroom from "./pages/mushrooms/Mushrooms";
 import AddMushroom from "./pages/addMushroom/addMushroom";
@@ -46,6 +46,11 @@ function App() {
           exact
           path="/protected"
           component={Protected}
+        />
+        <Route
+          exact
+          path="/recipes"
+          component={Recipe}
         />
         <Route
           exact
