@@ -7,6 +7,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import EmailLink from '../emailLink/EmailLink';
 
 function Footer(props) {
+ 
   return (
     <footer className="page-footer font-small blue pt-4">
       <Navbar variant="dark" expand="lg" fluid >
