@@ -113,11 +113,9 @@ class AddMushroom extends Component {
         return (
             <div className="Register">
                 <Header isAuthenticated={this.props.isAuthenticated} />
-                <div className="container">
-                    {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
-                    {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
-                </div>
-                <h3 className="text-center" >Add a Mushroom</h3>
+                
+                <h3 className="text-center"  >Add a Mushroom</h3>
+                <br/>
                 <MushroomForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
