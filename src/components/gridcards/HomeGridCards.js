@@ -16,7 +16,7 @@ function HomeGridCards(props) {
                                 <Card.Title>Shroomify</Card.Title>
                             </Link>
                             <Card.Text>
-                                View common mushrooms with images to help you ID your mushroom.
+                                View common mushrooms with images to help you ID your mushroom.                                
                             </Card.Text>
                         </Card.Body>
                         <Link to="/login" href="/login">
