@@ -10,7 +10,7 @@ function Footer(props) {
  
   return (
     <footer className="page-footer font-small blue pt-4">
-      <Navbar variant="dark" expand="lg" fluid >
+      <Navbar sticky="bottom" variant="dark" expand="lg" fluid >
         <Container fluid>
           <Row>
             <Col xs={9}>
