@@ -1,7 +1,4 @@
 import Carousel from "react-bootstrap/Carousel";
-import picture1 from '../../pictures/1.jpg';
-import picture4 from '../../pictures/4.jpg';
-import picture6 from '../../pictures/6.jpg';
 
 const ToolSlideshow = () => {
 
@@ -12,7 +9,7 @@ const ToolSlideshow = () => {
           <img
             style={{ height: "500px" }}
             className="d-block w-100"
-            src={picture1}
+            src={"https://as1.ftcdn.net/v2/jpg/00/00/43/68/1000_F_436857_Vm9o6Gq0oTlZsoTYDA6734EgymR1XT.jpg"}
             alt="slide"
          
           />
@@ -25,7 +22,7 @@ const ToolSlideshow = () => {
           <img
             style={{ height: "500px" }}
             className="d-block w-100"
-            src={picture4}
+            src={"https://as1.ftcdn.net/v2/jpg/04/61/71/92/1000_F_461719263_Mb4ExRMo1mv8TbRritVWG2biNFYkXXVf.jpg"}
             alt="slide"
             
           />
@@ -38,7 +35,7 @@ const ToolSlideshow = () => {
           <img
             style={{ height: "500px" }}
             className="d-block w-100"
-            src={picture6}
+            src={"https://as2.ftcdn.net/v2/jpg/02/83/40/25/1000_F_283402549_3DRw9qM2gTUMWKSAUqNzotm1GXfa8Xk1.jpg"}
             alt="slide"
           
           />
