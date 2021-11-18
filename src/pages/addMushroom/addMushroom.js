@@ -65,7 +65,7 @@ class AddMushroom extends Component {
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
                     {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
                 </div>
-                <h3 className="text-center" >Mushroom Editor</h3>
+                <h3 className="text-center" >Add a Mushroom</h3>
                 <MushroomForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}

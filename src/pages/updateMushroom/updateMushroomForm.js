@@ -4,9 +4,9 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from 'react-bootstrap/Button';
 
-function MushroomForm({ handleChange, handleSubmit, formData }) {
+function UpdateForm({ handleChange, handleSubmit, formData }) {
     return (
-        <div className="MushroomForm container">
+        <div className="UpdateForm container">
 
             <Form onSubmit={handleSubmit}>
                 <Row>
@@ -86,4 +86,4 @@ function MushroomForm({ handleChange, handleSubmit, formData }) {
     )
 }
 
-export default MushroomForm;
+export default UpdateForm;

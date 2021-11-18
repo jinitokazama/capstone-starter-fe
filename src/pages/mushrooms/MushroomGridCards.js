@@ -1,7 +1,8 @@
 import React from 'react';
 import MushroomDataService from '../../service/MushroomDataService';
 import isAuthenticated from '../../utils/isAuthenticated';
-import "../mushrooms/Mushroom.css"
+import { Link } from 'react-router-dom';
+import "../mushrooms/Mushroom.css";
 import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -51,6 +52,7 @@ class MushroomGridCards extends React.Component {
                                     <Card.Text>Edible: {mushroom.edibility}</Card.Text>
                                     <Card.Text>Location: {mushroom.locations}</Card.Text>
                                     {isAuthenticated() ? <Button className="MushroomButton" onClick={() => this.deleteMushrooms(mushroom._id)}>Delete</Button> : null}
+                                    {isAuthenticated() ? <Button className="MushroomButton" as={Link} to={`/editMushroom/${mushroom._id}`}>Update</Button> : null}
                                 </Card.Body>
                             </Card>
                         </Col>
