@@ -55,7 +55,7 @@ class RecipeGridCards extends Component {
           {this.state.recipeData.map((recipe, i) => (
             <Col key={i}>
               <Card>
-                <Card.Img variant="top" src="http://via.placeholder.com/300" />
+                <Card.Img variant="top" src={recipe.source} />
                 <Card.Body>
                   <Card.Title>{recipe.title}</Card.Title>
                   <Card.Text>
