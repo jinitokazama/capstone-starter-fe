@@ -5,8 +5,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding-top:50px;
-  background: rgba(47, 39, 39, 0.376);
+  padding-top:100px;
+  background: rgba(19, 18, 18, 0.376);
 }
 
 code {
@@ -22,5 +22,11 @@ code {
 }
 .navbar{
   background: rgba(3, 0, 0, 0.935);
+}
+
+.card-img-top {
+  width: 100%;
+  height: 15vw;
+  object-fit: cover;
 }
 

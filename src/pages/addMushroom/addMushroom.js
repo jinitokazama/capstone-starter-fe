@@ -1,12 +1,9 @@
 import React, { Component } from "react";
 import { generateAuthHeader } from "../../utils/authHelper";
 import mustBeAuthenticated from "../../redux/hoc/mustBeAuthenticated";
-
 import Alert from 'react-bootstrap/Alert';
-
 import Header from "../../components/header/Header";
 import MushroomForm from "../../components/mushroomForm/MushroomForm";
-
 
 class AddMushroom extends Component {
 
@@ -115,13 +112,12 @@ class AddMushroom extends Component {
     render() {
         return (
             <div className="Register">
-
                 <Header isAuthenticated={this.props.isAuthenticated} />
-                <br/>                
-                <br/>
-               
-                <h3 className="text-center" style={{color: 'orange'}}>Add A Mushroom</h3>
-                
+                <div className="container">
+                    {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
+                    {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
+                </div>
+                <h3 className="text-center" >Add a Mushroom</h3>
                 <MushroomForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}

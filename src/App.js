@@ -9,6 +9,7 @@ import Recipe from "./pages/recipe/Recipe";
 import Tools from './pages/tools/Tools';
 import Mushroom from "./pages/mushrooms/Mushrooms";
 import AddMushroom from "./pages/addMushroom/addMushroom";
+import EditMushroom from "./pages/updateMushroom/updateMushroom"
 import AddTools from "./pages/tools/AddTools";
 import AddRecipe from "./pages/recipe/AddRecipe";
 
@@ -67,6 +68,11 @@ function App() {
           exact
           path="/addTool"
           component={AddTools}
+        />
+        <Route
+          exact
+          path="/editMushroom/:mushroomId"
+          component={EditMushroom}
         />
         <Route
           exact

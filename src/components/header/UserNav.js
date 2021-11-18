@@ -18,6 +18,7 @@ function UserNav(props) {
       // handle success
       localStorage.removeItem('auth');
       props.actions.logout()
+      props.history.push(props.location.path)
     })
       .catch((error) => {
         console.log(error)
