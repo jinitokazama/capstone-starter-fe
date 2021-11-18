@@ -35,9 +35,21 @@ class MushroomGridCards extends React.Component {
         console.log("delete: " + mushroomId)
     }
 
+    handleSearch = (event) => {
+        this.mushroomService.getAllMushrooms(event.target.value).then((response) => {
+            this.setState({ mushroomData: response.data })
+        })
+            .catch((error) => {
+                console.log("Error: Could not find mushrooms")
+            })
+    }
+
     render() {
         return (
             <div className="GridCards px-5 mb-3">
+                <Row padding='20'>
+                        Mushroom Search<input type="text" onChange={this.handleSearch}/>
+                </Row>
                 <Row xs={1} lg={4} className="g-4">
                     {this.state.mushroomData.map((mushroom, idx) => (
                         <Col className="mb-4" key={idx}>
