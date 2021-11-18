@@ -11,6 +11,7 @@ import Mushroom from "./pages/mushrooms/Mushrooms";
 import AddMushroom from "./pages/addMushroom/addMushroom";
 
 
+
 function App() {
   return (
     <div className="App">
@@ -55,6 +56,7 @@ function App() {
           path="/addMushroom"
           component={AddMushroom}
         />
+        
         <Route
           exact
           path="*"
