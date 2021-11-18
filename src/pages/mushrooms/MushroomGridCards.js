@@ -50,7 +50,7 @@ class MushroomGridCards extends React.Component {
                 <Row padding='20'>
                         Mushroom Search<input type="text" onChange={this.handleSearch}/>
                 </Row>
-                <Row xs={1} lg={3} className="g-4">
+                <Row xs={1} lg={4} className="g-4">
                     {this.state.mushroomData.map((mushroom, idx) => (
                         <Col className="mb-4" key={idx}>
                             <Card className="h-100 ">
