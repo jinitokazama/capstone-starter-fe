@@ -46,7 +46,7 @@ function App() {
         />
         <Route
           exact
-          path="/recipe"
+          path="/recipes"
           component={Recipe}
         />
         <Route

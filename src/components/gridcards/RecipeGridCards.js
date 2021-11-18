@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Button from 'react-bootstrap';
+import Button, { DropdownButton } from 'react-bootstrap';
 import { generateAuthHeader } from '../../utils/authHelper';
+import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
+import DropdownMenu from 'react-overlays/esm/DropdownMenu';
 
 class RecipeGridCards extends Component {
 
@@ -48,28 +50,34 @@ class RecipeGridCards extends Component {
   }
 
 
+
   render() {
     return (
       <div className="GridCards container mb-3">
         <Row xs={1} lg={3} className="g-4">
           {this.state.recipeData.map((recipe, i) => (
+
             <Col key={i}>
               <Card>
                 <Card.Img variant="top" src={recipe.source} />
-                <Card.Body>
-                  <Card.Title>{recipe.title}</Card.Title>
-                  <Card.Text>
-                    {recipe.description}
-                  </Card.Text>
-                </Card.Body>
+                <Card.Title>{recipe.title}</Card.Title>
+                <Card.Subtitle className="mb-2 text-muted">{recipe.description}</Card.Subtitle>
+                <h5>Ingredients:</h5>
+                {recipe.ingredients.map((ingredientstep) => (
+                  <li>{ingredientstep}</li>
+                ))}
+                <h5>Directions:</h5>
+                {recipe.directions.map((ingredientDirectionStep) => (
+                  <li>{ingredientDirectionStep}</li>
+                ))}
+
               </Card>
             </Col>
-          ))}
+          ))
+          }
         </Row>
-      </div>
+      </div >
     );
   }
-  
 }
 export default RecipeGridCards;
-

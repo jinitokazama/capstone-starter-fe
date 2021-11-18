@@ -5,8 +5,8 @@ import RecipeGridCards from "../../components/gridcards/RecipeGridCards";
 function Recipe(props) {
   return (
     <div className="Recipe">
-        <Header/>
-        <RecipeGridCards/>
+      <Header />
+      <RecipeGridCards />
     </div>
   );
 }
@@ -14,3 +14,5 @@ function Recipe(props) {
 
 
 export default Recipe;
+
+
