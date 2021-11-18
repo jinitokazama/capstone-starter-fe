@@ -53,12 +53,12 @@ class RecipeGridCards extends Component {
 
   render() {
     return (
-      <div className="GridCards container mb-3">
-        <Row xs={1} lg={3} className="g-4">
+      <div className="GridCards mb-3">
+        <Row xs={1} lg={4} className="g-4">
           {this.state.recipeData.map((recipe, i) => (
 
             <Col key={i}>
-              <Card>
+              <Card>"
                 <Card.Img variant="top" src={recipe.source} />
                 <Card.Title>{recipe.title}</Card.Title>
                 <Card.Subtitle className="mb-2 text-muted">{recipe.description}</Card.Subtitle>

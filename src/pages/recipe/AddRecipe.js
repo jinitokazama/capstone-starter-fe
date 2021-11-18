@@ -37,14 +37,41 @@ class AddRecipe extends Component {
     }
 
     handleSubmit = (event) => {
+        //reset alert message
+        this.setState({ errorMessage: null });
+        this.setState({ successMessage: null });
+
         event.preventDefault();
 
-        if (this.state.formData.Ingredients === "") {
-            this.setState({ errorMessage: "There are no ingredients listed!" })
+        //validate form data
+
+        if (this.state.formData.description === "") {
+            this.setState({ errorMessage: "The description is empty!" })
             return;
         }
-
+        if (this.state.formData.tags === "") {
+            this.setState({ errorMessage: "The tags field is empty!" })
+            return;
+        }
+        if (this.state.formData.title === "") {
+            this.setState({ errorMessage: "The title is empty!" })
+            return;
+        }
+        if (this.state.formData.source === "") {
+            this.setState({ errorMessage: "The image source is empty!" })
+            return;
+        }
+        if (this.state.formData.ingredients === "") {
+            this.setState({ errorMessage: "The ingredients filed is empty!" })
+            return;
+        }
+        if (this.state.formData.directions === "") {
+            this.setState({ errorMessage: "The directions field is empty!" })
+            return;
+        }
         const apiURL = process.env.REACT_APP_API_URL
+
+        //make API call to add data to the database
 
         fetch(`${apiURL}/api/recipes`, {
             method: "POST",
@@ -61,16 +88,13 @@ class AddRecipe extends Component {
                 }
                 else {
                     response.json();// on success, turn the respons into JSON so we can work with it
-                    this.setState({ successMessage: "Recipe has been successfully added" });
+                    this.setState({ successMessage: "Recipe is added successfully" });
+                    const message = "Recipe is added successfully"
+                    //programatically redirect to another route on success
+                    this.props.history.push(`/recipes?message=${message}`)
                 }
             })
 
-            //.then((data) => {
-
-            //const message = "This recipe has been succesfully added into the library! Thank you for your contribution!"
-            //programatically redirect to another route on success
-            // this.props.history.push(`/recipes?message=${message}`)
-            //})
             .catch(e => {
                 this.setState({ errorMessage: e.errorMessage })
             })
@@ -83,18 +107,20 @@ class AddRecipe extends Component {
             <div className="Register">
 
                 <Header isAuthenticated={this.props.isAuthenticated} />
-
-                <div className="container">
-                    {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
-                    {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
-                </div>
-                <h3 className="text-center" >Add A Mushroom</h3>
-                <RecipeForm
+                    <br/>
+                    <br/>
+                    <h3 className="text-center" style={{color: 'orange'}}>Add A Recipe</h3>
+               
+               
+                    <RecipeForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
                     formData={this.state.formData}
                 />
-
+                <div className="container">
+                    {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
+                    {this.state.successMessage && <Alert variant="success">{this.state.successMessage}</Alert>}
+                </div>
             </div>
         )
     }
