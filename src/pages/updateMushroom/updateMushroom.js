@@ -89,7 +89,7 @@ class UpdateMushroom extends Component {
             <div className="UpdateMushroom">
                 <Header isAuthenticated={this.props.isAuthenticated} />
 
-                <h3 className="text-center" >Edit an existing mushroom</h3>
+                <h3 className="text-center" >Edit an Existing Mushroom</h3>
                 <UpdateMushroomForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}

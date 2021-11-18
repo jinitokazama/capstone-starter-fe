@@ -109,7 +109,7 @@ class AddRecipe extends Component {
                 <Header isAuthenticated={this.props.isAuthenticated} />
                     <br/>
                     <br/>
-                    <h3 className="text-center" style={{color: 'orange'}}>Add A Recipe</h3>
+                    <h3 className="text-center" >Add a Recipe</h3>
                
                
                     <RecipeForm
