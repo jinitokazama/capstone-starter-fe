@@ -2,7 +2,7 @@ import isAuthenticated from "../../utils/isAuthenticated";
 import Header from "../../components/header/Header";
 import ToolGridCards from "../../components/gridcards/ToolGridCards";
 import ToolSlideshow from "../../components/slideshow/ToolsSlideshow";
-import Footer from '../../components/footer/footer';
+import Footer from '../../components/footers/Footer';
 
 function Tools(props) {
   return (
