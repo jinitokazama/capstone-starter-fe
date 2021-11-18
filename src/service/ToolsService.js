@@ -19,11 +19,17 @@ class ToolService {
   }
 
   updateTool(toolId, updatedTool) {
-    return this.client.put(`${this.url}/api/tools/${toolId}`, updatedTool);
+    const config = {
+      headers: generateAuthHeader(),
+    };
+    return this.client.put(`${this.url}/api/tools/${toolId}`, updatedTool, config);
   }
 
-  addTool() {
-    return this.client.post(`${this.url}/api/tools`);
+  addTool(toolInfo) {
+    const config = {
+      headers: generateAuthHeader(),
+    };
+    return this.client.post(`${this.url}/api/tools`, toolInfo, config);
   }
 
 }
