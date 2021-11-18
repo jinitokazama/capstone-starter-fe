@@ -10,7 +10,7 @@ import Tools from './pages/tools/Tools';
 import Mushroom from "./pages/mushrooms/Mushrooms";
 import AddMushroom from "./pages/addMushroom/addMushroom";
 import AddTools from "./pages/tools/AddTools";
-
+import AddRecipe from "./pages/recipe/AddRecipe";
 
 
 function App() {
@@ -70,9 +70,16 @@ function App() {
         />
         <Route
           exact
+          path="/addRecipe"
+          component={AddRecipe}
+        />
+        <Route
+          exact
           path="*"
           component={NotFound}
         />
+        
+        
       </Switch>
     </div>
   );

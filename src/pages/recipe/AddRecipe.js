@@ -13,12 +13,12 @@ class AddRecipe extends Component {
         errorMessage: null,
         successMessage: null,
         formData: {
-            Description: "",
-            Tags: "",
-            Title: "",
-            Source: "",
-            Ingredients: "",
-            Directions: "",
+            description: "",
+            tags: "",
+            title: "",
+            source: "",
+            ingredients: "",
+            directions: "",
         }
     }
 
