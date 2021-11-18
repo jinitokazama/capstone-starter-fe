@@ -36,14 +36,7 @@ function UpdateForm({ handleChange, handleSubmit, formData }) {
                     </Col>
                 </Row>
 
-                <Row>
-                    <Col>
-                        <Form.Group controlId="idCharacteristics">
-                            <Form.Label><strong>Identifiction Characteristics</strong></Form.Label>
-                            <Form.Control onChange={handleChange} value={formData.idCharacteristics} type="text" placeholder="describe the body, cap, gills, stem, flesh and ring" />
-                        </Form.Group>
-                    </Col>
-                </Row>
+                
                 <Row>
                     <Col>
                         <Form.Group controlId="edibility">
@@ -59,12 +52,7 @@ function UpdateForm({ handleChange, handleSubmit, formData }) {
                     </Col>
                 </Row>
                 <Row>
-                    <Col>
-                        <Form.Group controlId="experts">
-                            <Form.Label><strong>Experts</strong></Form.Label>
-                            <Form.Control onChange={handleChange} value={formData.experts} type="text" placeholder="first name and last name"/>
-                        </Form.Group>
-                    </Col>
+                    
                     <Col>
                         <Form.Group controlId="pictureUrl">
                             <Form.Label><strong>Image URL</strong></Form.Label>
