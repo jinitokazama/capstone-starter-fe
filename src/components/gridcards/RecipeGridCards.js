@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Button, { DropdownButton } from 'react-bootstrap';
 import { generateAuthHeader } from '../../utils/authHelper';
-import DropdownToggle from 'react-bootstrap/esm/DropdownToggle';
-import DropdownMenu from 'react-overlays/esm/DropdownMenu';
 
 class RecipeGridCards extends Component {
 

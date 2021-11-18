@@ -11,6 +11,8 @@ import Mushroom from "./pages/mushrooms/Mushrooms";
 import AddMushroom from "./pages/addMushroom/addMushroom";
 import EditMushroom from "./pages/updateMushroom/updateMushroom"
 import AddTools from "./pages/tools/AddTools";
+import AddRecipe from "./pages/recipe/AddRecipe";
+
 
 function App() {
   return (
@@ -74,9 +76,16 @@ function App() {
         />
         <Route
           exact
+          path="/addRecipe"
+          component={AddRecipe}
+        />
+        <Route
+          exact
           path="*"
           component={NotFound}
         />
+        
+        
       </Switch>
     </div>
   );
