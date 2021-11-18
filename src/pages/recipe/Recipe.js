@@ -6,7 +6,7 @@ import RecipeGridCards from "../../components/gridcards/RecipeGridCards";
 function Recipe(props) {
   return (
     <div className="Recipe">
-      <Header />
+      <Header isAuthenticated={isAuthenticated()}/>
       <RecipeGridCards />
     </div>
   );

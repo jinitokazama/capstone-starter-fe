@@ -54,7 +54,6 @@ function RecipeForm({ handleChange, handleSubmit, formData }) {
                     </Col>
                 </Row>
                 <br />
-
                 <Button variant="primary" type="submit">
                     Submit
                 </Button>
