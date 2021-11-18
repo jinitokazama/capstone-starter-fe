@@ -7,7 +7,7 @@ function Slideshow(props) {
             <Carousel variant="dark">
                 <Carousel.Item>
                     <img style={{'height':"640px"}}
-                                            className="d-block w-100"
+                        className="d-block w-100"
                         src="https://as1.ftcdn.net/v2/jpg/00/65/49/36/1000_F_65493692_8MV0xO2gzOPkAsy2OS4VXth1U1tLiGhh.jpg"
                         alt="First slide"
                         fluid
@@ -42,7 +42,7 @@ function Slideshow(props) {
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img style={{'height':"680px"}}
+                    <img style={{'height':"640px"}}
                         className="d-block w-100"
                         src="https://as2.ftcdn.net/v2/jpg/04/67/58/25/1000_F_467582582_QiXmPSyj0Wqg28s1lqWZO8rBX2gGqnre.jpg"
                         alt="Fourth slide"
@@ -54,7 +54,7 @@ function Slideshow(props) {
                     </Carousel.Caption>
                 </Carousel.Item>
                 <Carousel.Item>
-                    <img style={{'height':"680px"}}
+                    <img style={{'height':"640px"}}
                         className="d-block w-100"
                         src="https://as1.ftcdn.net/v2/jpg/03/54/50/60/1000_F_354506042_PotCXlzJV6ZZrfY0qFCpiyrjeKUGVUHl.jpg"
                         alt="Fifth slide"

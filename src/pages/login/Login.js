@@ -9,6 +9,7 @@ import AuthService from "../../authService";
 import { Redirect, withRouter } from "react-router-dom";
 import LoginForm from "../../components/loginForm/LoginForm";
 import Header from "../../components/header/Header";
+import isAuthenticated from "../../utils/isAuthenticated";
 
 class Login extends Component {
 
@@ -52,12 +53,12 @@ class Login extends Component {
         const flashMessage = params.get('message');
         if (this.state.success) {
             const redirect = params.get('redirect');
-            return <Redirect to={(redirect) ? redirect : "/protected"} />
+            return <Redirect to={(redirect) ? redirect : window.history.back} />
         }
         return (
             <div className="LoginForm">
 
-                <Header />
+                <Header isAuthenticated={isAuthenticated()}/>
 
                 <div className="container">
                     {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}

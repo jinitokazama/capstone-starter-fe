@@ -6,9 +6,21 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top:50px;
+  background: rgba(19, 18, 18, 0.376);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.nav-link {
+  color: rgb(16, 1, 1);
+}
+.navbar-brand {
+  color: rgb(241, 237, 237);
+}
+.navbar{
+  background: rgba(3, 0, 0, 0.935);
+}
+
