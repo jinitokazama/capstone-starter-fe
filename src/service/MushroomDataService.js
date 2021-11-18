@@ -12,8 +12,12 @@ class MushroomDataService {
         };
     }
 
-    getAllMushrooms() {
-        return this.client.get(`${this.url}/api/mushrooms`)
+    getAllMushrooms(searchTerm) {
+        let query = ""
+        if(searchTerm) {
+            query = `?searchTerm=${searchTerm}`
+        }
+        return this.client.get(`${this.url}/api/mushrooms${query}`)
     };
 
     createMushrooms(data) {
