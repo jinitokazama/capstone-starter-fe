@@ -15,7 +15,6 @@ class UpdateMushroom extends Component {
             scientificName: "",
             description: "",
             color: "",
-            idCharacteristics: "",
             edibility: "",
             locations: "",
             experts: "",
@@ -41,7 +40,7 @@ class UpdateMushroom extends Component {
             .then((response) => response.json())
             .then((data) => {
                 this.setState({
-                    formData: {...this.state.formData, ...data}
+                    formData: { ...this.state.formData, ...data }
                 });
             })
             .catch((error) => {
@@ -52,6 +51,12 @@ class UpdateMushroom extends Component {
     handleChange = (event) => {
         let formData = { ...this.state.formData };
         formData[event.target.id] = event.target.value;
+
+        //set the expert to be the login user's email
+        let auth = localStorage.getItem("auth");
+        auth = JSON.parse(auth);
+        formData.experts = auth.email;
+
         this.setState({ formData });
     }
 
@@ -59,7 +64,7 @@ class UpdateMushroom extends Component {
         event.preventDefault();
         const apiURL = process.env.REACT_APP_API_URL
         const mushroomId = this.props.match.params.mushroomId;
-        const newMushroomData = {...this.state.formData}
+        const newMushroomData = { ...this.state.formData }
         fetch(`${apiURL}/api/mushrooms/${mushroomId}`, {
             method: "PUT",
             headers: {
@@ -70,8 +75,10 @@ class UpdateMushroom extends Component {
         })
             .then((response) => response.json())
             .then((data) => {
-                this.setState({successMessage: "Mushroom Updated Successfully"})
+                this.setState({ successMessage: "Mushroom Updated Successfully" })
                 this.getMushroom(mushroomId)
+                //programatically redirect to another route on success
+                this.props.history.push(`/mushrooms`)
             })
             .catch(e => console.log(e.message))
 
@@ -81,10 +88,7 @@ class UpdateMushroom extends Component {
         return (
             <div className="UpdateMushroom">
                 <Header isAuthenticated={this.props.isAuthenticated} />
-                <div className="container">
-                    {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
-                    {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
-                </div>
+
                 <h3 className="text-center" >Edit an existing mushroom</h3>
                 <UpdateMushroomForm
                     handleChange={this.handleChange}
@@ -92,6 +96,10 @@ class UpdateMushroom extends Component {
                     formData={this.state.formData}
                     isUpdate={true}
                 />
+                <div className="container">
+                    {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
+                    {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
+                </div>
             </div>
         )
     }
