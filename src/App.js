@@ -10,7 +10,12 @@ import Tools from './pages/tools/Tools';
 import Mushroom from "./pages/mushrooms/Mushrooms";
 import AddMushroom from "./pages/addMushroom/addMushroom";
 import AddTools from "./pages/tools/AddTools";
+<<<<<<< HEAD
 import AddRecipe from "./pages/recipe/AddRecipe";
+=======
+import AddRecipe from "./pages/recipe/AddRecipe"
+
+>>>>>>> fb1d1d3863df2f62c77389bd5bc80bf6fe0f0507
 
 
 function App() {
