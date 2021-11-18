@@ -9,7 +9,7 @@ function HomeGridCards(props) {
         <div className="GridCards container mb-3">
             <Row xs={1} lg={3} className="g-4">
                 <Col>
-                    <Card border="dark" >
+                    <Card className="h-100" border="dark" >
 
                         <Card.Body>
                             <Link to="/mushrooms" href="/mushrooms">
@@ -25,7 +25,7 @@ function HomeGridCards(props) {
                     </Card>
                 </Col>
                 <Col>
-                    <Card border="dark" >
+                    <Card className="h-100" border="dark" >
                         <Link to="/" href="/">
                             <Card.Img variant="top" src="https://as1.ftcdn.net/v2/jpg/02/34/66/64/1000_F_234666444_LaGMfOH0Tnxo76IhyKwXpUxnhHAt7k7I.jpg" />
                         </Link>
@@ -41,7 +41,7 @@ function HomeGridCards(props) {
                     </Card>
                 </Col>
                 <Col>
-                    <Card border="dark" >
+                    <Card className="h-100" border="dark" >
 
                         <Card.Body>
                             <Link to="/tools" href="/tools">
