@@ -74,7 +74,7 @@ function MushroomForm({ handleChange, handleSubmit, formData }) {
                         </Form.Group>
                     </Col>
                     <Col>
-                        <Form.Group controlId="wikipedia">
+                        <Form.Group controlId="wikipediaUrl">
                             <Form.Label><strong>Wiki Link</strong></Form.Label>
                             <Form.Control onChange={handleChange} value={formData.wikipediaUrl} type="text" placeholder="environment the mushroom grows: tree, soil etc" />
                         </Form.Group>
