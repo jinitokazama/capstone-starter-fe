@@ -29,27 +29,61 @@ class AddMushroom extends Component {
     handleChange = (event) => {
         this.setState({ errorMessage: "" });
         this.setState({ successMessage: "" });
-       
+
         let formData = { ...this.state.formData };
         formData[event.target.id] = event.target.value;
         //set the expert to be the login user's email
         let auth = localStorage.getItem("auth");
         auth = JSON.parse(auth);
         formData.experts = auth.email;
-       
+
         this.setState({ formData });
     }
 
     handleSubmit = (event) => {
+        //reset alert message
+        this.setState({ errorMessage: null });
+        this.setState({ successMessage: null });
+
         event.preventDefault();
 
-        if (this.state.formData.pictureUrl === "") {
-            this.setState({ errorMessage: "The pictureUrl is empty!" })
+        //validate form data
+
+        if (this.state.formData.commonName === "") {
+            this.setState({ errorMessage: "The common name is empty!" })
             return;
         }
-
+        if (this.state.formData.scientificName === "") {
+            this.setState({ errorMessage: "The scientific name is empty!" })
+            return;
+        }
+        if (this.state.formData.color === "") {
+            this.setState({ errorMessage: "The color is empty!" })
+            return;
+        }
+        if (this.state.formData.description === "") {
+            this.setState({ errorMessage: "The desciption is empty!" })
+            return;
+        }
+        if (this.state.formData.edibility === "") {
+            this.setState({ errorMessage: "The edibility is empty!" })
+            return;
+        }
+        if (this.state.formData.locations === "") {
+            this.setState({ errorMessage: "The location is empty!" })
+            return;
+        }
+        if (this.state.formData.pictureUrl === "") {
+            this.setState({ errorMessage: "The picture URL is empty!" })
+            return;
+        }
+        if (this.state.formData.wikipediaUrl === "") {
+            this.setState({ errorMessage: "The wikipedia URL is empty!" })
+            return;
+        }
         const apiURL = process.env.REACT_APP_API_URL
 
+        //make API call to add data to the database
         fetch(`${apiURL}/api/mushrooms`, {
             method: "POST",
             headers: {
@@ -65,16 +99,12 @@ class AddMushroom extends Component {
                 }
                 else {
                     response.json();// on success, turn the respons into JSON so we can work with it
-                    this.setState({ successMessage: "Mushroom is added Successfully" });
+                    this.setState({ successMessage: "Mushroom is added successfully" });
+                    const message = "Mushroom is added successfully"
+                    //programatically redirect to another route on success
+                    this.props.history.push(`/mushrooms?message=${message}`)
                 }
-            })
-
-            //.then((data) => {
-
-            //const message = "This mushroom has been succesfully added into the library! Thank you for your contribution!"
-            //programatically redirect to another route on success
-            // this.props.history.push(`/mushrooms?message=${message}`)
-            //})
+            })            
             .catch(e => {
                 this.setState({ errorMessage: e.errorMessage })
             })
@@ -87,18 +117,20 @@ class AddMushroom extends Component {
             <div className="Register">
 
                 <Header isAuthenticated={this.props.isAuthenticated} />
-
-                <div className="container">
-                    {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
-                    {this.state.successMessage && <Alert variant="info">{this.state.successMessage}</Alert>}
-                </div>
-                <h3 className="text-center" >Add A Mushroom</h3>
+                <br/>                
+                <br/>
+               
+                <h3 className="text-center" style={{color: 'orange'}}>Add A Mushroom</h3>
+                
                 <MushroomForm
                     handleChange={this.handleChange}
                     handleSubmit={this.handleSubmit}
                     formData={this.state.formData}
                 />
-
+                <div className="container">
+                    {this.state.errorMessage && <Alert variant="danger">{this.state.errorMessage}</Alert>}
+                    {this.state.successMessage && <Alert variant="success">{this.state.successMessage}</Alert>}
+                </div>
             </div>
         )
     }
