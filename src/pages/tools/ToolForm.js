@@ -41,7 +41,7 @@ function ToolForm() {
       <Form ref={formRef} onSubmit={onAdd}>
         <Row className="mb-3">
           <Form.Group as={Col} controlId="formName">
-            <Form.Label style={{ color: "white" }}>Name</Form.Label>
+            <Form.Label >Name</Form.Label>
             <Form.Control required type="text" placeholder="Enter name" />
             <Form.Control.Feedback type="invalid">
               Please provide a valid name.
@@ -49,7 +49,7 @@ function ToolForm() {
           </Form.Group>
 
           <Form.Group as={Col} controlId="formPicture">
-            <Form.Label style={{ color: "white" }}>Picture</Form.Label>
+            <Form.Label >Picture</Form.Label>
             <Form.Control
               required
               type="text"
@@ -62,7 +62,7 @@ function ToolForm() {
         </Row>
 
         <Form.Group className="mb-3" controlId="formDescription">
-          <Form.Label style={{ color: "white" }}>Description</Form.Label>
+          <Form.Label >Description</Form.Label>
           <Form.Control required placeholder="Enter description" />
           <Form.Control.Feedback type="invalid">
             Please provide a valid description.

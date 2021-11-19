@@ -10,7 +10,7 @@ import isAuthenticated from "../../utils/isAuthenticated";
 const ToolGridCards = () => {
   const [alert, setAlert] = useState(false);
   const [status, setStatus] = useState();
-  const [tools, setTools] = useState([{}]);
+  const [tools, setTools] = useState([]);
   const [updatedToolId, setUpdatedToolId] = useState();
   const toolService = new ToolService();
 
