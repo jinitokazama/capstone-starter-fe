@@ -7,7 +7,7 @@ const AddTools = (props) => {
     <div className="Register">
       <Header isAuthenticated={isAuthenticated()} />
 
-      <h3 style={{ color: "white" }} className="text-center">
+      <h3  className="text-center">
         Add a Tool
       </h3>
       <ToolForm />
